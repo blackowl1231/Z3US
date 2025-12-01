@@ -629,7 +629,7 @@ loadbtn.MouseButton1Click:Connect(function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Test.lua"))()
 		elseif selectedOption == "Counterblox" then
 			if version == "New" then
-				loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/256e863c25cb837e"))()
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Counterblox%20New.lua"))()
 			else
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Counterblox.lua"))()
 			end
