@@ -395,16 +395,36 @@ textLabel11.Parent = rivals
 
 rivals.Parent = frame
 
+local rivalsToggleContainer = Instance.new("Frame")
+rivalsToggleContainer.Name = "RivalsToggleContainer"
+rivalsToggleContainer.Parent = frame
+rivalsToggleContainer.BackgroundColor3 = Color3.fromRGB(17, 18, 20)
+rivalsToggleContainer.BackgroundTransparency = 0.9
+rivalsToggleContainer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+rivalsToggleContainer.BorderSizePixel = 0
+rivalsToggleContainer.Position = UDim2.new(0.60, 0, 0.53, 0)
+rivalsToggleContainer.Size = UDim2.new(0, 280, 0, 65)
+rivalsToggleContainer.Visible = false
+
+local containerStroke = Instance.new("UIStroke")
+containerStroke.Parent = rivalsToggleContainer
+containerStroke.Color = Color3.fromRGB(26, 29, 37)
+containerStroke.Thickness = 2
+containerStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+local uICornerContainer = Instance.new("UICorner")
+uICornerContainer.CornerRadius = UDim.new(0, 25)
+uICornerContainer.Parent = rivalsToggleContainer
+
 local autoloadToggle = Instance.new("Frame")
 autoloadToggle.Name = "AutoloadToggle"
-autoloadToggle.Parent = frame
+autoloadToggle.Parent = rivalsToggleContainer
 autoloadToggle.BackgroundColor3 = Color3.fromRGB(17, 18, 20)
 autoloadToggle.BackgroundTransparency = 0.9
 autoloadToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 autoloadToggle.BorderSizePixel = 0
-autoloadToggle.Position = UDim2.new(0.60, 0, 0.55, 0)
-autoloadToggle.Size = UDim2.new(0, 280, 0, 50)
-autoloadToggle.Visible = false
+autoloadToggle.Position = UDim2.new(0.05, 0, 0.15, 0)
+autoloadToggle.Size = UDim2.new(0, 120, 0, 45)
 
 local toggleStroke = Instance.new("UIStroke")
 toggleStroke.Parent = autoloadToggle
@@ -413,7 +433,7 @@ toggleStroke.Thickness = 2
 toggleStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
 local uICornerToggle = Instance.new("UICorner")
-uICornerToggle.CornerRadius = UDim.new(0, 25)
+uICornerToggle.CornerRadius = UDim.new(0, 15)
 uICornerToggle.Parent = autoloadToggle
 
 local toggleLabel = Instance.new("TextLabel")
@@ -424,11 +444,11 @@ toggleLabel.BackgroundTransparency = 1
 toggleLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 toggleLabel.BorderSizePixel = 0
 toggleLabel.Position = UDim2.new(0.05, 0, 0, 0)
-toggleLabel.Size = UDim2.new(0, 160, 0, 50)
+toggleLabel.Size = UDim2.new(0, 70, 0, 45)
 toggleLabel.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
 toggleLabel.Text = "Autoload:"
 toggleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-toggleLabel.TextSize = 20
+toggleLabel.TextSize = 16
 toggleLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 local toggleButton = Instance.new("TextButton")
@@ -437,17 +457,71 @@ toggleButton.Parent = autoloadToggle
 toggleButton.BackgroundColor3 = Color3.fromRGB(140, 155, 208)
 toggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 toggleButton.BorderSizePixel = 0
-toggleButton.Position = UDim2.new(0.65, 0, 0.15, 0)
-toggleButton.Size = UDim2.new(0, 80, 0, 35)
+toggleButton.Position = UDim2.new(0.60, 0, 0.15, 0)
+toggleButton.Size = UDim2.new(0, 40, 0, 30)
 toggleButton.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
 toggleButton.Text = "ON"
 toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-toggleButton.TextSize = 18
+toggleButton.TextSize = 14
 toggleButton.TextWrapped = true
 
 local uICornerToggleBtn = Instance.new("UICorner")
-uICornerToggleBtn.CornerRadius = UDim.new(0, 15)
+uICornerToggleBtn.CornerRadius = UDim.new(0, 10)
 uICornerToggleBtn.Parent = toggleButton
+
+-- Silentload Toggle for Rivals (right side)
+local silentloadToggle = Instance.new("Frame")
+silentloadToggle.Name = "SilentloadToggle"
+silentloadToggle.Parent = rivalsToggleContainer
+silentloadToggle.BackgroundColor3 = Color3.fromRGB(17, 18, 20)
+silentloadToggle.BackgroundTransparency = 0.9
+silentloadToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+silentloadToggle.BorderSizePixel = 0
+silentloadToggle.Position = UDim2.new(0.55, 0, 0.15, 0)
+silentloadToggle.Size = UDim2.new(0, 120, 0, 45)
+
+local silentloadStroke = Instance.new("UIStroke")
+silentloadStroke.Parent = silentloadToggle
+silentloadStroke.Color = Color3.fromRGB(26, 29, 37)
+silentloadStroke.Thickness = 2
+silentloadStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+local uICornerSilentload = Instance.new("UICorner")
+uICornerSilentload.CornerRadius = UDim.new(0, 15)
+uICornerSilentload.Parent = silentloadToggle
+
+local silentloadLabel = Instance.new("TextLabel")
+silentloadLabel.Name = "SilentloadLabel"
+silentloadLabel.Parent = silentloadToggle
+silentloadLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+silentloadLabel.BackgroundTransparency = 1
+silentloadLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+silentloadLabel.BorderSizePixel = 0
+silentloadLabel.Position = UDim2.new(0.05, 0, 0, 0)
+silentloadLabel.Size = UDim2.new(0, 70, 0, 45)
+silentloadLabel.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
+silentloadLabel.Text = "Silentload :"
+silentloadLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+silentloadLabel.TextSize = 16
+silentloadLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+local silentloadButton = Instance.new("TextButton")
+silentloadButton.Name = "SilentloadButton"
+silentloadButton.Parent = silentloadToggle
+silentloadButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+silentloadButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+silentloadButton.BorderSizePixel = 0
+silentloadButton.Position = UDim2.new(0.60, 0, 0.15, 0)
+silentloadButton.Size = UDim2.new(0, 40, 0, 30)
+silentloadButton.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
+silentloadButton.Text = "OFF"
+silentloadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+silentloadButton.TextSize = 14
+silentloadButton.TextWrapped = true
+
+local uICornerSilentloadBtn = Instance.new("UICorner")
+uICornerSilentloadBtn.CornerRadius = UDim.new(0, 10)
+uICornerSilentloadBtn.Parent = silentloadButton
 
 frame.Parent = z3USLoader
 
@@ -455,24 +529,25 @@ local selectedOption = nil
 local selectedColor = Color3.fromRGB(140, 155, 208)
 local defaultColor = Color3.fromRGB(26, 29, 37)
 local autoloadEnabled = true
+local silentloadEnabled = false
 local version = "New"
 
 local VersionToggle = Instance.new("Frame")
-VersionToggle.Name = "AutoloadToggle"
+VersionToggle.Name = "VersionToggle"
 VersionToggle.Parent = frame
 VersionToggle.BackgroundColor3 = Color3.fromRGB(17, 18, 20)
 VersionToggle.BackgroundTransparency = 0.9
 VersionToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 VersionToggle.BorderSizePixel = 0
-VersionToggle.Position = UDim2.new(0.60, 0, 0.55, 0)
+VersionToggle.Position = UDim2.new(0.60, 0, 0.53, 0)
 VersionToggle.Size = UDim2.new(0, 280, 0, 50)
 VersionToggle.Visible = false
 
-local versoiontoggleStroke = Instance.new("UIStroke")
-versoiontoggleStroke.Parent = VersionToggle
-versoiontoggleStroke.Color = Color3.fromRGB(26, 29, 37)
-versoiontoggleStroke.Thickness = 2
-versoiontoggleStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+local versiontoggleStroke = Instance.new("UIStroke")
+versiontoggleStroke.Parent = VersionToggle
+versiontoggleStroke.Color = Color3.fromRGB(26, 29, 37)
+versiontoggleStroke.Thickness = 2
+versiontoggleStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
 local uICornerversionToggle = Instance.new("UICorner")
 uICornerversionToggle.CornerRadius = UDim.new(0, 25)
@@ -520,6 +595,14 @@ local function updateToggleAppearance()
 		toggleButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 		toggleButton.Text = "OFF"
 	end
+	
+	if silentloadEnabled then
+		silentloadButton.BackgroundColor3 = Color3.fromRGB(140, 155, 208)
+		silentloadButton.Text = "ON"
+	else
+		silentloadButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+		silentloadButton.Text = "OFF"
+	end
 
 	if version == "New" then
 		versionButton.BackgroundColor3 = Color3.fromRGB(140, 155, 208)
@@ -540,7 +623,7 @@ local function selectScript(scriptFrame, scriptName)
 	gunfightArenaStroke.Color = defaultColor
 	hypershotStroke.Color = defaultColor
 
-	autoloadToggle.Visible = false
+	rivalsToggleContainer.Visible = false
 	VersionToggle.Visible = false
 
 	if scriptFrame then
@@ -549,7 +632,7 @@ local function selectScript(scriptFrame, scriptName)
 		textLabel6.Text = scriptName
 
 		if scriptName == "Rivals" then
-			autoloadToggle.Visible = true
+			rivalsToggleContainer.Visible = true
 			updateToggleAppearance()
 		end
 
@@ -610,6 +693,11 @@ toggleButton.MouseButton1Click:Connect(function()
 	updateToggleAppearance()
 end)
 
+silentloadButton.MouseButton1Click:Connect(function()
+	silentloadEnabled = not silentloadEnabled
+	updateToggleAppearance()
+end)
+
 versionButton.MouseButton1Click:Connect(function()
 	version = if version == "Old" then "New" else "Old"
 	updateToggleAppearance()
@@ -625,11 +713,12 @@ loadbtn.MouseButton1Click:Connect(function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Hypershot.lua"))()
 		elseif selectedOption == "Rivals" then
 			getgenv().autoload = autoloadEnabled
+			getgenv().silentload = silentloadEnabled
 			loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8be52e21a0145a401c446ca7ab2b5df9bd327ea80b0cf1d2fe99e442edd0f9c9/download"))()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Test.lua"))()
 		elseif selectedOption == "Counterblox" then
 			if version == "New" then
-				loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Counterblox%20New.lua"))()
+				loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/2438cfd42af811d55492e854318eeda24a73aa5d0b11a403ec1f7542abd8f2f0/download"))()
 			else
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Counterblox.lua"))()
 			end
