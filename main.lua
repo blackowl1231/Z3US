@@ -712,6 +712,9 @@ loadbtn.MouseButton1Click:Connect(function()
 		elseif selectedOption == "Hypershot" then
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Hypershot.lua"))()
 		elseif selectedOption == "Rivals" then
+			repeat task.wait() until game:IsLoaded()
+			repeat task.wait() until game:GetService("Players").LocalPlayer and game:GetService("Players").LocalPlayer.Character
+			repeat task.wait() until not game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("LoadingScreen")
 			getgenv().autoload = autoloadEnabled
 			getgenv().silentload = silentloadEnabled
 			loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8be52e21a0145a401c446ca7ab2b5df9bd327ea80b0cf1d2fe99e442edd0f9c9/download"))()
