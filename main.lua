@@ -395,6 +395,83 @@ textLabel11.Parent = rivals
 
 rivals.Parent = frame
 
+local blackidk = Instance.new("Frame")
+blackidk.Name = "blackidk"
+blackidk.Parent = frame
+blackidk.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+blackidk.BackgroundTransparency = 0.2
+blackidk.BorderSizePixel = 0
+blackidk.Size = UDim2.new(1, 0, 1, 0)
+blackidk.ZIndex = 8
+blackidk.Visible = false
+
+local uICorner111 = Instance.new("UICorner")
+uICorner111.Name = "UICorner"
+uICorner111.CornerRadius = UDim.new(0, 25)
+uICorner111.Parent = blackidk
+
+local confipanel = Instance.new("Frame")
+confipanel.Name = "confipanel"
+confipanel.Parent = frame
+confipanel.BackgroundColor3 = Color3.fromRGB(17, 18, 20)
+confipanel.BackgroundTransparency = 0
+confipanel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+confipanel.BorderSizePixel = 0
+confipanel.Position = UDim2.new(0.5, -200, 0.5, -75)
+confipanel.Size = UDim2.new(0, 400, 0, 150)
+confipanel.Visible = false
+confipanel.ZIndex = 10
+
+local confirmCorner = Instance.new("UICorner")
+confirmCorner.CornerRadius = UDim.new(0, 12)
+confirmCorner.Parent = confipanel
+
+local confirmStroke = Instance.new("UIStroke")
+confirmStroke.Color = Color3.fromRGB(26, 29, 37)
+confirmStroke.Thickness = 2
+confirmStroke.Parent = confipanel
+
+local confirmText = Instance.new("TextLabel")
+confirmText.Name = "ConfirmText"
+confirmText.Parent = confipanel
+confirmText.BackgroundTransparency = 1
+confirmText.Size = UDim2.new(1, -20, 0, 70)
+confirmText.Position = UDim2.new(0, 10, 0, 10)
+confirmText.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
+confirmText.Text = "WARNING: This script is may not be undetected! Running it may result in a ban.\nDo you still want to select it?"
+confirmText.TextColor3 = Color3.fromRGB(255, 255, 255)
+confirmText.TextSize = 20
+confirmText.TextWrapped = true
+confirmText.TextXAlignment = Enum.TextXAlignment.Center
+
+local confirmYes = Instance.new("TextButton")
+confirmYes.Name = "ConfirmYes"
+confirmYes.Parent = confipanel
+confirmYes.BackgroundColor3 = Color3.fromRGB(140, 155, 208)
+confirmYes.Size = UDim2.new(0, 100, 0, 35)
+confirmYes.Position = UDim2.new(0.5, -110, 1, -45)
+confirmYes.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
+confirmYes.Text = "Yes"
+confirmYes.TextColor3 = Color3.fromRGB(255, 255, 255)
+confirmYes.TextSize = 18
+local yesCorner = Instance.new("UICorner")
+yesCorner.CornerRadius = UDim.new(0, 8)
+yesCorner.Parent = confirmYes
+
+local confirmNo = Instance.new("TextButton")
+confirmNo.Name = "ConfirmNo"
+confirmNo.Parent = confipanel
+confirmNo.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+confirmNo.Size = UDim2.new(0, 100, 0, 35)
+confirmNo.Position = UDim2.new(0.5, 10, 1, -45)
+confirmNo.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
+confirmNo.Text = "No"
+confirmNo.TextColor3 = Color3.fromRGB(255, 255, 255)
+confirmNo.TextSize = 18
+local noCorner = Instance.new("UICorner")
+noCorner.CornerRadius = UDim.new(0, 8)
+noCorner.Parent = confirmNo
+
 local rivalsToggleContainer = Instance.new("Frame")
 rivalsToggleContainer.Name = "RivalsToggleContainer"
 rivalsToggleContainer.Parent = frame
@@ -469,7 +546,6 @@ local uICornerToggleBtn = Instance.new("UICorner")
 uICornerToggleBtn.CornerRadius = UDim.new(0, 10)
 uICornerToggleBtn.Parent = toggleButton
 
--- Silentload Toggle for Rivals (right side)
 local silentloadToggle = Instance.new("Frame")
 silentloadToggle.Name = "SilentloadToggle"
 silentloadToggle.Parent = rivalsToggleContainer
@@ -586,7 +662,6 @@ local uICornerversionButton = Instance.new("UICorner")
 uICornerversionButton.CornerRadius = UDim.new(0, 15)
 uICornerversionButton.Parent = versionButton
 
-
 local function updateToggleAppearance()
 	if autoloadEnabled then
 		toggleButton.BackgroundColor3 = Color3.fromRGB(140, 155, 208)
@@ -612,7 +687,6 @@ local function updateToggleAppearance()
 		versionButton.Text = "Old"
 	end
 end
-
 
 local function selectScript(scriptFrame, scriptName)
 	arsenalStroke.Color = defaultColor
@@ -666,8 +740,20 @@ end)
 
 rivals.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-		selectScript(rivals, "Rivals")
+		confipanel.Visible = true
+		blackidk.Visible = true
 	end
+end)
+
+confirmYes.MouseButton1Click:Connect(function()
+	confipanel.Visible = false
+	blackidk.Visible = false
+	selectScript(rivals, "Rivals")
+end)
+
+confirmNo.MouseButton1Click:Connect(function()
+	confipanel.Visible = false
+	blackidk.Visible = false
 end)
 
 counterblox.InputBegan:Connect(function(input)
@@ -718,8 +804,7 @@ loadbtn.MouseButton1Click:Connect(function()
 			getgenv().autoload = autoloadEnabled
 			getgenv().silentload = silentloadEnabled
 			getgenv().SCRIPT_KEY = ""
-			game:GetService("Players").LocalPlayer:Kick("This script is currently down, pls wait for an update!")
-			--loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8be52e21a0145a401c446ca7ab2b5df9bd327ea80b0cf1d2fe99e442edd0f9c9/download"))()
+			loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8be52e21a0145a401c446ca7ab2b5df9bd327ea80b0cf1d2fe99e442edd0f9c9/download"))()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Test.lua"))()
 		elseif selectedOption == "Counterblox" then
 			if version == "New" then
