@@ -205,43 +205,43 @@ textLabel7.Parent = planks
 
 planks.Parent = frame
 
-local hypershot = Instance.new("Frame")
-hypershot.Name = "Hypershot"
-hypershot.BackgroundColor3 = Color3.fromRGB(17, 18, 20)
-hypershot.BackgroundTransparency = 0.9
-hypershot.BorderColor3 = Color3.fromRGB(0, 0, 0)
-hypershot.BorderSizePixel = 0
-hypershot.Position = UDim2.fromScale(0.03, 0.58694)
-hypershot.Size = UDim2.fromOffset(330, 65)
+local OneTap = Instance.new("Frame")
+OneTap.Name = "OneTap"
+OneTap.BackgroundColor3 = Color3.fromRGB(17, 18, 20)
+OneTap.BackgroundTransparency = 0.9
+OneTap.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OneTap.BorderSizePixel = 0
+OneTap.Position = UDim2.fromScale(0.03, 0.58694)
+OneTap.Size = UDim2.fromOffset(330, 65)
 
-local hypershotStroke = Instance.new("UIStroke")
-hypershotStroke.Name = "UIStroke"
-hypershotStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-hypershotStroke.Color = Color3.fromRGB(26, 29, 37)
-hypershotStroke.Thickness = 1.9
-hypershotStroke.Parent = hypershot
+local OneTapStroke = Instance.new("UIStroke")
+OneTapStroke.Name = "UIStroke"
+OneTapStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+OneTapStroke.Color = Color3.fromRGB(26, 29, 37)
+OneTapStroke.Thickness = 1.9
+OneTapStroke.Parent = OneTap
 
-local uICornerHypershot = Instance.new("UICorner")
-uICornerHypershot.Name = "UICorner"
-uICornerHypershot.CornerRadius = UDim.new(0, 25)
-uICornerHypershot.Parent = hypershot
+local uICornerOneTap = Instance.new("UICorner")
+uICornerOneTap.Name = "UICorner"
+uICornerOneTap.CornerRadius = UDim.new(0, 25)
+uICornerOneTap.Parent = OneTap
 
-local textLabelHypershot = Instance.new("TextLabel")
-textLabelHypershot.Name = "TextLabel"
-textLabelHypershot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-textLabelHypershot.BackgroundTransparency = 1
-textLabelHypershot.BorderColor3 = Color3.fromRGB(0, 0, 0)
-textLabelHypershot.BorderSizePixel = 0
-textLabelHypershot.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
-textLabelHypershot.Position = UDim2.fromScale(0.15, 0.0462)
-textLabelHypershot.Size = UDim2.fromOffset(250, 58)
-textLabelHypershot.Text = "Hypershot"
-textLabelHypershot.TextColor3 = Color3.fromRGB(255, 255, 255)
-textLabelHypershot.TextSize = 62
-textLabelHypershot.TextWrapped = true
-textLabelHypershot.Parent = hypershot
+local textLabelOneTap = Instance.new("TextLabel")
+textLabelOneTap.Name = "TextLabel"
+textLabelOneTap.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+textLabelOneTap.BackgroundTransparency = 1
+textLabelOneTap.BorderColor3 = Color3.fromRGB(0, 0, 0)
+textLabelOneTap.BorderSizePixel = 0
+textLabelOneTap.FontFace = Font.new("rbxasset://fonts/families/Nunito.json")
+textLabelOneTap.Position = UDim2.fromScale(0.15, 0.0462)
+textLabelOneTap.Size = UDim2.fromOffset(250, 58)
+textLabelOneTap.Text = "OneTap"
+textLabelOneTap.TextColor3 = Color3.fromRGB(255, 255, 255)
+textLabelOneTap.TextSize = 62
+textLabelOneTap.TextWrapped = true
+textLabelOneTap.Parent = OneTap
 
-hypershot.Parent = frame
+OneTap.Parent = frame
 
 local universal = Instance.new("Frame")
 universal.Name = "Universal"
@@ -695,7 +695,7 @@ local function selectScript(scriptFrame, scriptName)
 	counterbloxStroke.Color = defaultColor
 	universalStroke.Color = defaultColor
 	gunfightArenaStroke.Color = defaultColor
-	hypershotStroke.Color = defaultColor
+	OneTapStroke.Color = defaultColor
 
 	rivalsToggleContainer.Visible = false
 	VersionToggle.Visible = false
@@ -732,9 +732,9 @@ planks.InputBegan:Connect(function(input)
 	end
 end)
 
-hypershot.InputBegan:Connect(function(input)
+OneTap.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-		selectScript(hypershot, "Hypershot")
+		selectScript(OneTap, "OneTap")
 	end
 end)
 
@@ -795,8 +795,9 @@ loadbtn.MouseButton1Click:Connect(function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Arsenal%20Beta.lua"))()
 		elseif selectedOption == "Planks" then
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Planks.lua"))()
-		elseif selectedOption == "Hypershot" then
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/Games/Z3US%20Hypershot.lua"))()
+		elseif selectedOption == "OneTap" then
+			getgenv().SCRIPT_KEY = ""
+			loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/2548ffbebdf21063cd4083f93a27ac276d44d1cb6503093d9c3290c3dfd954e3/download"))()
 		elseif selectedOption == "Rivals" then
 			repeat task.wait() until game:IsLoaded()
 			repeat task.wait() until game:GetService("Players").LocalPlayer and game:GetService("Players").LocalPlayer.Character
