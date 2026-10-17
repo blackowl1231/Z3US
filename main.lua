@@ -529,7 +529,7 @@ local GAMES = {
 	{
 		name = "One Tap",
 		load = function(o)
-			getgenv().SCRIPT_KEY = ""
+			--getgenv().SCRIPT_KEY = ""
 			loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/2548ffbebdf21063cd4083f93a27ac276d44d1cb6503093d9c3290c3dfd954e3/download"))()
 		end
 	},
